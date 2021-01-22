@@ -1,5 +1,9 @@
 # AardvarkReveal
 
+## Contributing
+
+We’re glad you’re interested in AardvarkReveal, and we’d love to see where you take it. Please read our [contributing guidelines](CONTRIBUTING.md) prior to submitting a Pull Request.
+
 ## License
 
 ```
