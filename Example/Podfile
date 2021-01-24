@@ -1,0 +1,13 @@
+platform :ios, '12.0'
+
+target 'AardvarkRevealDemo' do
+  use_frameworks!
+
+  pod 'AardvarkReveal', testspecs: ['UnitTests'], :path => '../AardvarkReveal.podspec'
+
+  pod 'Aardvark', :git => 'https://github.com/square/Aardvark', :branch => 'develop/aardvark-4.0'
+  pod 'AardvarkMailUI', :git => 'https://github.com/square/Aardvark', :branch => 'develop/aardvark-4.0'
+  pod 'CoreAardvark', :git => 'https://github.com/square/Aardvark', :branch => 'develop/aardvark-4.0'
+
+  pod 'Reveal-SDK'
+end
