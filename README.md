@@ -5,6 +5,18 @@
 [![License](https://img.shields.io/cocoapods/l/AardvarkReveal.svg)](https://cocoapods.org/pods/AardvarkReveal)
 [![Platform](https://img.shields.io/cocoapods/p/AardvarkReveal.svg)](https://cocoapods.org/pods/AardvarkReveal)
 
+AardvarkReveal is an extension to [Aardvark](https://github.com/square/Aardvark) that provides components for generating a bug report attachment containing a [Reveal](https://revealapp.com/) file.
+
+## Installation
+
+### CocoaPods
+
+To install AardvarkReveal via [CocoaPods](https://cocoapods.org/), simply add the following line to your Podfile:
+
+```ruby
+pod 'AardvarkReveal'
+```
+
 ## Contributing
 
 We’re glad you’re interested in AardvarkReveal, and we’d love to see where you take it. Please read our [contributing guidelines](CONTRIBUTING.md) prior to submitting a Pull Request.
