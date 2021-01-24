@@ -1,5 +1,10 @@
 # AardvarkReveal
 
+[![CI Status](https://img.shields.io/github/workflow/status/cashapp/AardvarkReveal/CI/master)](https://github.com/cashapp/AardvarkReveal/actions?query=workflow%3ACI+branch%3Amain)
+[![Version](https://img.shields.io/cocoapods/v/AardvarkReveal.svg)](https://cocoapods.org/pods/AardvarkReveal)
+[![License](https://img.shields.io/cocoapods/l/AardvarkReveal.svg)](https://cocoapods.org/pods/AardvarkReveal)
+[![Platform](https://img.shields.io/cocoapods/p/AardvarkReveal.svg)](https://cocoapods.org/pods/AardvarkReveal)
+
 ## Contributing
 
 We’re glad you’re interested in AardvarkReveal, and we’d love to see where you take it. Please read our [contributing guidelines](CONTRIBUTING.md) prior to submitting a Pull Request.
