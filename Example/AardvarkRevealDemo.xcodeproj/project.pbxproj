@@ -100,6 +100,7 @@
 				3DA56A8325BD12DC00F29926 /* Frameworks */,
 				3DA56A8425BD12DC00F29926 /* Resources */,
 				AB4BFECD725ED38E11EAC4A3 /* [CP] Embed Pods Frameworks */,
+				3D87647225D0F54B00884D22 /* Allow Insecure HTTP Requests to Localhost */,
 			);
 			buildRules = (
 			);
@@ -155,6 +156,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3D87647225D0F54B00884D22 /* Allow Insecure HTTP Requests to Localhost */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Allow Insecure HTTP Requests to Localhost";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Create the appropriate nested dictionaries if they don't exist already.\nplutil -insert NSAppTransportSecurity -xml \"<dict/>\" \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\" > /dev/null || true\nplutil -insert NSAppTransportSecurity.NSExceptionDomains -xml \"<dict/>\" \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\" > /dev/null || true\nplutil -insert NSAppTransportSecurity.NSExceptionDomains.localhost -xml \"<dict/>\" \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\" > /dev/null || true\n\n# Add an exception for 'localhost' and subdomains to allow insecure HTTP loads. \nplutil -replace NSAppTransportSecurity.NSExceptionDomains.localhost.NSExceptionAllowsInsecureHTTPLoads -bool YES \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\" > /dev/null \\\n  || plutil -insert NSAppTransportSecurity.NSExceptionDomains.localhost.NSExceptionAllowsInsecureHTTPLoads -bool YES \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\"\nplutil -replace NSAppTransportSecurity.NSExceptionDomains.localhost.NSIncludesSubdomains -bool YES \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\" > /dev/null \\\n  || plutil -insert NSAppTransportSecurity.NSExceptionDomains.localhost.NSIncludesSubdomains -bool YES \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\"\n";
+		};
 		9DB3B8D6FE6CCF8C0A6BC256 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
