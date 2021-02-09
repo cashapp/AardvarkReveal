@@ -37,13 +37,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Aardvark:
-    :commit: 5b49e51e2079ce179afdf15db8377de32ff2b791
+    :commit: 5b20887f37f21efe2130931cb98685ebeeb36c78
     :git: https://github.com/square/Aardvark
   AardvarkMailUI:
-    :commit: 5b49e51e2079ce179afdf15db8377de32ff2b791
+    :commit: 5b20887f37f21efe2130931cb98685ebeeb36c78
     :git: https://github.com/square/Aardvark
   CoreAardvark:
-    :commit: 5b49e51e2079ce179afdf15db8377de32ff2b791
+    :commit: 5b20887f37f21efe2130931cb98685ebeeb36c78
     :git: https://github.com/square/Aardvark
 
 SPEC CHECKSUMS:
