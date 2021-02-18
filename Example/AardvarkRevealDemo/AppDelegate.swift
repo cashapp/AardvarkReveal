@@ -17,7 +17,7 @@
 import Aardvark
 import UIKit
 
-@main
+@UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(
