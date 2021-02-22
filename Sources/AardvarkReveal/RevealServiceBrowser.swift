@@ -54,7 +54,10 @@ final class RevealServiceBrowser: NSObject, NetServiceBrowserDelegate, RevealSer
         // When running on device, the host name will match the device's host name. When running in a simulator, the
         // host name will be "localhost.".
         let deviceHostName = ProcessInfo.processInfo.hostName.lowercased() + "."
-        return services.first {
+
+        // Find the last service with a matching host name. If multiple services are published (e.g. the app was
+        // backgrounded, then brought back to the foreground), only the last one will be active.
+        return services.reversed().first {
             $0.hostName?.lowercased() == deviceHostName || $0.hostName == "localhost."
         }
     }
@@ -64,6 +67,8 @@ final class RevealServiceBrowser: NSObject, NetServiceBrowserDelegate, RevealSer
     private let serviceBrowser: NetServiceBrowser = .init()
 
     private var services: [NetService] = []
+
+    private var isSearching = false
 
     // MARK: - NetServiceBrowserDelegate
 
@@ -79,11 +84,19 @@ final class RevealServiceBrowser: NSObject, NetServiceBrowserDelegate, RevealSer
     // MARK: - Internal Methods
 
     func startSearching() {
-        serviceBrowser.searchForServices(ofType: "_reveal._tcp", inDomain: "local")
+        // The service browser won't find the service if we tell it to search multiple times, so make sure we only tell
+        // it to start searching if it hasn't started yet or was previously stopped.
+        guard !isSearching else {
+            return
+        }
+
+        serviceBrowser.searchForServices(ofType: "_reveal._tcp.", inDomain: "local.")
+        isSearching = true
     }
 
     func stopSearching() {
         serviceBrowser.stop()
+        isSearching = false
     }
 
 }
