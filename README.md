@@ -17,6 +17,54 @@ To install AardvarkReveal via [CocoaPods](https://cocoapods.org/), simply add th
 pod 'AardvarkReveal'
 ```
 
+## Getting Started
+
+AardvarkReveal provides a simple utility class for generating a bug report attachment containing a compressed Reveal bundle. To get started, create a `RevealAttachmentGenerator`.
+
+```swift
+self.revealAttachmentGenerator = RevealAttachmentGenerator()
+```
+
+This generator will listen for Reveal's Bonjour service and automatically connect in the background. Since this process is asynchronous, it's important to initialize the generator early. It's recommended to hold onto the generator in your app/scene delegate.
+
+When you're ready to file a bug report, call the generator's `captureCurrentAppState(completionQueue:completion:)` method.
+
+```swift
+revealAttachmentGenerator.captureCurrentAppState(completionQueue: .main) { attachment in
+    if let attachment = attachment {
+        // Attach it to the bug report
+    }
+
+    // Continue with the bug reporting flow
+}
+```
+
+This will asynchronously capture the application state, generate the Reveal bundle, create a compressed archive from the data, and call the completion with the final bug report attachment.
+
+For an example of how this setup works, check out the [SceneDelegate](https://github.com/square/AardvarkReveal/blob/main/Example/AardvarkRevealDemo/SceneDelegate.swift) in the demo app. To make the experience smoother, for example by presenting a loading screen while the generator is capturing the snapshot, you can add a delegate conforming to the [`RevealAttachmentGeneratorDelegate`](https://github.com/square/AardvarkReveal/blob/main/Sources/AardvarkReveal/RevealAttachmentGenerator.swift) protocol.
+
+The generator communicates with the Reveal service using Bonjour. You will need to ensure that Reveal is allowed to broadcast over Bonjour, otherwise the generator will fail to connect. See the [support article](https://support.revealapp.com/hc/en-us/articles/900002728683-Supporting-iOS-14-Permission-Changes-) for more information.
+
+You will also need to enable insecure HTTP connections to `localhost` to allow the generator to communicate with the Reveal service. You can enable this by adding the following to your `Info.plist`:
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSExceptionDomains</key>
+    <dict>
+        <key>localhost</key>
+        <dict>
+            <key>NSExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+        </dict>
+    </dict>
+</dict>
+```
+
+Alternatively, you can add a build phase to update the `Info.plist`, as demonstrated [in the demo app](https://github.com/square/AardvarkReveal/commit/b492ea785d45d015b4e89e57421ac5b545d128f4). We highly recommend using a build phase in your app and restricting it to only run in the desired build configurations.
+
 ## Contributing
 
 We’re glad you’re interested in AardvarkReveal, and we’d love to see where you take it. Please read our [contributing guidelines](CONTRIBUTING.md) prior to submitting a Pull Request.
