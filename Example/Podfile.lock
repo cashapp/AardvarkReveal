@@ -11,40 +11,23 @@ PODS:
   - Reveal-SDK (27)
 
 DEPENDENCIES:
-  - Aardvark (from `https://github.com/square/Aardvark`, branch `develop/aardvark-4.0`)
-  - AardvarkMailUI (from `https://github.com/square/Aardvark`, branch `develop/aardvark-4.0`)
+  - Aardvark (~> 4.0)
+  - AardvarkMailUI (~> 1.0)
   - AardvarkReveal (from `../AardvarkReveal.podspec`)
   - AardvarkReveal/UnitTests (from `../AardvarkReveal.podspec`)
-  - CoreAardvark (from `https://github.com/square/Aardvark`, branch `develop/aardvark-4.0`)
+  - CoreAardvark (~> 3.0)
   - Reveal-SDK
 
 SPEC REPOS:
   trunk:
+    - Aardvark
+    - AardvarkMailUI
+    - CoreAardvark
     - Reveal-SDK
 
 EXTERNAL SOURCES:
-  Aardvark:
-    :branch: develop/aardvark-4.0
-    :git: https://github.com/square/Aardvark
-  AardvarkMailUI:
-    :branch: develop/aardvark-4.0
-    :git: https://github.com/square/Aardvark
   AardvarkReveal:
     :path: "../AardvarkReveal.podspec"
-  CoreAardvark:
-    :branch: develop/aardvark-4.0
-    :git: https://github.com/square/Aardvark
-
-CHECKOUT OPTIONS:
-  Aardvark:
-    :commit: 5b20887f37f21efe2130931cb98685ebeeb36c78
-    :git: https://github.com/square/Aardvark
-  AardvarkMailUI:
-    :commit: 5b20887f37f21efe2130931cb98685ebeeb36c78
-    :git: https://github.com/square/Aardvark
-  CoreAardvark:
-    :commit: 5b20887f37f21efe2130931cb98685ebeeb36c78
-    :git: https://github.com/square/Aardvark
 
 SPEC CHECKSUMS:
   Aardvark: 6d84a2e9d317d3b5ff7bf9b860c6e2ccf444043c
@@ -53,6 +36,6 @@ SPEC CHECKSUMS:
   CoreAardvark: 9c943d82736bc261ff4130287aa25e4f35dc7567
   Reveal-SDK: 306e2880395ee396f5a8b4c485c3a86dd19866c7
 
-PODFILE CHECKSUM: ba855c31d4ea1db17c04dcc3371673fcd379ea38
+PODFILE CHECKSUM: c946a587b5ae753384fb496c4fa34c72f2525aae
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.0
