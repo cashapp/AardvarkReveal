@@ -19,13 +19,14 @@ pod 'AardvarkReveal'
 
 ## Getting Started
 
-AardvarkReveal provides a simple utility class for generating a bug report attachment containing a compressed Reveal bundle. To get started, create a `RevealAttachmentGenerator`.
+AardvarkReveal provides a simple utility class for generating a bug report attachment containing a compressed Reveal bundle. To get started, create a `RevealAttachmentGenerator` and tell it to begin listening for the Reveal server.
 
 ```swift
 self.revealAttachmentGenerator = RevealAttachmentGenerator()
+self.revealAttachmentGenerator.startListeningForRevealServer()
 ```
 
-This generator will listen for Reveal's Bonjour service and automatically connect in the background. Since this process is asynchronous, it's important to initialize the generator early. It's recommended to hold onto the generator in your app/scene delegate.
+The generator will then listen for Reveal's Bonjour service and automatically connect in the background. Since this process is asynchronous, it's important to initialize the generator and start listening early. It's recommended to hold onto the generator in your app/scene delegate.
 
 When you're ready to file a bug report, call the generator's `captureCurrentAppState(completionQueue:completion:)` method.
 

@@ -173,8 +173,40 @@ public final class RevealAttachmentGenerator: NSObject {
         self.archiveBuilderFactory = archiveBuilderFactory
 
         super.init()
+    }
 
+    deinit {
+        stopListeningForRevealServer()
+    }
+
+    // MARK: - Public Properties
+
+    public weak var delegate: RevealAttachmentGeneratorDelegate?
+
+    // MARK: - Private Properties
+
+    private let serviceBrowser: RevealServiceBrowsing
+
+    private let urlSession: NetworkSession
+
+    private let archiveBuilderFactory: (_ bundleName: String) throws -> ArchiveBuilder
+
+    private var notificationObservers: [NSObjectProtocol] = []
+
+    // MARK: - Public Methods
+
+    /// Begins listening for the Reveal server's Bonjour service.
+    ///
+    /// Connecting to the Bonjour service is an asynchronous process and may need to disconnect/reconnect over time as
+    /// the Reveal server starts and stops. It is recommended to call this method early so it has time to search for the
+    /// service.
+    @objc
+    public func startListeningForRevealServer() {
         serviceBrowser.startSearching()
+
+        // The Reveal server only runs while the app is in the foreground, so there's no point wasting resources by
+        // running the service browser in the background. Listen for foreground/background status changes and start/stop
+        // the browser accordingly.
 
         notificationObservers.append(
             NotificationCenter.default.addObserver(
@@ -197,25 +229,18 @@ public final class RevealAttachmentGenerator: NSObject {
         )
     }
 
-    deinit {
+    /// Stops listening for the Reveal server's Bonjour service.
+    ///
+    /// **You should not need to call this method in most cases.** The generator will automatically avoid searching for
+    /// the Reveal service when it is known to be offline and will automatically stop searching when this class is
+    /// deallocated.
+    @objc
+    public func stopListeningForRevealServer() {
         notificationObservers.forEach(NotificationCenter.default.removeObserver(_:))
+        notificationObservers = []
+
+        serviceBrowser.stopSearching()
     }
-
-    // MARK: - Public Properties
-
-    public weak var delegate: RevealAttachmentGeneratorDelegate?
-
-    // MARK: - Private Properties
-
-    private let serviceBrowser: RevealServiceBrowsing
-
-    private let urlSession: NetworkSession
-
-    private let archiveBuilderFactory: (_ bundleName: String) throws -> ArchiveBuilder
-
-    private var notificationObservers: [NSObjectProtocol] = []
-
-    // MARK: - Public Methods
 
     /// Begins the process of capturing the current app state and bundling the results into an attachment containing a
     /// Reveal file.
