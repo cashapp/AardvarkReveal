@@ -66,6 +66,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func setUpRevealBugReportGesture() {
         let revealAttachmentGenerator = RevealAttachmentGenerator()
         self.revealAttachmentGenerator = revealAttachmentGenerator
+        revealAttachmentGenerator.startListeningForRevealServer()
 
         let bugReporter = ARKEmailBugReporter(
             emailAddress: "fake-email@aardvarkbugreporting.src",
