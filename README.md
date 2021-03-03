@@ -66,6 +66,24 @@ You will also need to enable insecure HTTP connections to `localhost` to allow t
 
 Alternatively, you can add a build phase to update the `Info.plist`, as demonstrated [in the demo app](https://github.com/square/AardvarkReveal/commit/b492ea785d45d015b4e89e57421ac5b545d128f4). We highly recommend using a build phase in your app and restricting it to only run in the desired build configurations.
 
+## Demo App
+
+AardvarkReveal includes a demo app that shows how the framework can be used. To run the demo app:
+
+1. Clone the repo.
+2. Open the `Example` directory.
+3. Run `bundle exec pod install`.
+4. Open `AardvarkRevealDemo.xcworkspace`.
+5. Enable code signing for the `AardvarkRevealDemo` to use your development team.
+6. Run the `AardvarkRevealDemo` scheme on your device.
+
+Note that the demo app uses an email-based bug reporter, so it will not be able to file the report from a simulator since the simulator does not include the Mail app. The demo app runs on iOS 13 and later.
+
+## Requirements
+
+* Xcode 11.0 or later
+* iOS 12.0 or later
+
 ## Contributing
 
 We’re glad you’re interested in AardvarkReveal, and we’d love to see where you take it. Please read our [contributing guidelines](CONTRIBUTING.md) prior to submitting a Pull Request.
