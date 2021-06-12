@@ -14,6 +14,7 @@
 //  limitations under the License.
 //
 
+import MapKit
 import UIKit
 
 final class ViewController: UIViewController {
@@ -48,6 +49,8 @@ extension ViewController {
             instructionLabel.textColor = .label
             addSubview(instructionLabel)
 
+            addSubview(mapView)
+
             backgroundColor = .systemBackground
         }
 
@@ -60,12 +63,16 @@ extension ViewController {
 
         private let instructionLabel: UILabel = .init()
 
+        private let mapView: MKMapView = .init()
+
         // MARK: - UIView
 
         override func layoutSubviews() {
             let layoutBounds = bounds.insetBy(dx: 24, dy: 24)
             instructionLabel.bounds.size = instructionLabel.sizeThatFits(layoutBounds.size)
             instructionLabel.center = .init(x: bounds.midX, y: bounds.midY)
+
+            mapView.frame = .init(x: 0, y: bounds.maxY - 100, width: bounds.width, height: 100)
         }
 
     }
