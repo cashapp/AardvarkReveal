@@ -7,8 +7,8 @@ PODS:
     - Aardvark (~> 4.0)
   - AardvarkReveal/UnitTests (1.0.0):
     - Aardvark (~> 4.0)
-  - CoreAardvark (3.0.0)
-  - Reveal-SDK (27)
+  - CoreAardvark (3.0.1)
+  - Reveal-SDK (29)
 
 DEPENDENCIES:
   - Aardvark (~> 4.0)
@@ -33,8 +33,8 @@ SPEC CHECKSUMS:
   Aardvark: 6d84a2e9d317d3b5ff7bf9b860c6e2ccf444043c
   AardvarkMailUI: a3b61ff1fbd62c9d33703efc3f0cc34597afad73
   AardvarkReveal: d0326597fe83ee50544444d72ab6667031e10845
-  CoreAardvark: 9c943d82736bc261ff4130287aa25e4f35dc7567
-  Reveal-SDK: 306e2880395ee396f5a8b4c485c3a86dd19866c7
+  CoreAardvark: 3a47ac2109c3cb3d81b1f2b53fb52a3b3fd86a1b
+  Reveal-SDK: 0ecda2395cf587e2f574c19a723b3dd27c90572e
 
 PODFILE CHECKSUM: c946a587b5ae753384fb496c4fa34c72f2525aae
 
