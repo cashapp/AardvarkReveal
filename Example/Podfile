@@ -1,13 +1,13 @@
-platform :ios, '12.0'
+platform :ios, '14.0'
 
 target 'AardvarkRevealDemo' do
   use_frameworks!
 
   pod 'AardvarkReveal', testspecs: ['UnitTests'], :path => '../AardvarkReveal.podspec'
 
-  pod 'Aardvark', '~> 4.0'
-  pod 'AardvarkMailUI', '~> 1.0'
-  pod 'CoreAardvark', '~> 3.0'
+  pod 'Aardvark', '~> 5.0'
+  pod 'AardvarkMailUI', '~> 2.0'
+  pod 'CoreAardvark', '~> 4.0'
 
   pod 'Reveal-SDK'
 end
