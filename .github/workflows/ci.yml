@@ -9,36 +9,36 @@ on:
 jobs:
   xcode-build:
     name: Xcode Build
-    runs-on: macOS-10.15
+    runs-on: macOS-13
     strategy:
       matrix:
-        platform: ['iOS_14', 'iOS_13']
+        platform: ['iOS_17', 'iOS_16']
       fail-fast: false
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Bundle Install
         run: bundle install --gemfile=Example/Gemfile
-      - name: Select Xcode Version (12.2)
-        run: sudo xcode-select --switch /Applications/Xcode_12.2.app/Contents/Developer
-        if: matrix.platform == 'iOS_14'
-      - name: Select Xcode Version (11.3.1)
-        run: sudo xcode-select --switch /Applications/Xcode_11.3.1.app/Contents/Developer
-        if: matrix.platform == 'iOS_13'
+      - name: Select Xcode Version (15.1)
+        run: sudo xcode-select --switch /Applications/Xcode_15.1.app/Contents/Developer
+        if: matrix.platform == 'iOS_17'
+      - name: Select Xcode Version (14.3.1)
+        run: sudo xcode-select --switch /Applications/Xcode_14.3.1.app/Contents/Developer
+        if: matrix.platform == 'iOS_16'
       - name: Pod Install
         run: bundle exec --gemfile=Example/Gemfile pod install --project-directory=Example
       - name: Build and Test
         run: Scripts/build.swift xcode ${{ matrix.platform }} `which xcpretty`
   pod-lint:
     name: Pod Lint
-    runs-on: macOS-10.15
+    runs-on: macOS-13
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Bundle Install
         run: bundle install --gemfile=Example/Gemfile
       - name: Select Xcode Version
-        run: sudo xcode-select --switch /Applications/Xcode_11.7.app/Contents/Developer
+        run: sudo xcode-select --switch /Applications/Xcode_15.1.app/Contents/Developer
       - name: Checkout Aardvark Repo
         uses: actions/checkout@v2
         with:
