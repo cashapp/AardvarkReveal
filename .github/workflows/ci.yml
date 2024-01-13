@@ -45,5 +45,7 @@ jobs:
           repository: square/Aardvark
           ref: develop/aardvark-4.0
           path: Aardvark
+      - name: Update Pods Repo
+        run: bundle exec --gemfile=Example/Gemfile pod repo update
       - name: Lint AardvarkReveal Podspec
-        run: bundle exec --gemfile=Example/Gemfile pod lib lint --verbose --fail-fast AardvarkReveal.podspec --include-podspecs="Aardvark/{CoreAardvark,Aardvark}.podspec"
+        run: bundle exec --gemfile=Example/Gemfile pod lib lint --verbose --fail-fast AardvarkReveal.podspec
