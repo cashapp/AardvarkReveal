@@ -1,6 +1,7 @@
 # AardvarkReveal
 
-[![CI Status](https://img.shields.io/github/workflow/status/cashapp/AardvarkReveal/CI/main)](https://github.com/cashapp/AardvarkReveal/actions?query=workflow%3ACI+branch%3Amain)
+
+[![CI Status](https://img.shields.io/github/actions/workflow/status/cashapp/AardvarkReveal/ci.yml?branch=main)](https://github.com/cashapp/AardvarkReveal/actions?query=workflow%3ACI+branch%3Amain)
 [![Version](https://img.shields.io/cocoapods/v/AardvarkReveal.svg)](https://cocoapods.org/pods/AardvarkReveal)
 [![License](https://img.shields.io/cocoapods/l/AardvarkReveal.svg)](https://cocoapods.org/pods/AardvarkReveal)
 [![Platform](https://img.shields.io/cocoapods/p/AardvarkReveal.svg)](https://cocoapods.org/pods/AardvarkReveal)
