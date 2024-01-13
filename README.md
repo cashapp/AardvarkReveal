@@ -82,8 +82,8 @@ Note that the demo app uses an email-based bug reporter, so it will not be able 
 
 ## Requirements
 
-* Xcode 11.0 or later
-* iOS 12.0 or later
+* Xcode 14.0 or later
+* iOS 14.0 or later
 
 ## Contributing
 
@@ -92,7 +92,7 @@ We’re glad you’re interested in AardvarkReveal, and we’d love to see where
 ## License
 
 ```
-Copyright 2021 Square, Inc.
+Copyright 2023 Block, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
