@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   s.ios.deployment_target = '14.0'
 
-  s.source_files = 'Sources/AardvarkReveal/**/*.{swift}', 'Sources/AardvarkRevealCompression/**/*.{h,m}'
+  s.source_files = 'Sources/AardvarkReveal/**/*.swift', 'Sources/AardvarkRevealCompression/**/*.{h,m}'
 
   s.dependency 'Aardvark', '~> 5.0'
 
