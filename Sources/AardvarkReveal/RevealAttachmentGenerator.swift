@@ -19,6 +19,11 @@ import Foundation
 import UIKit
 import zlib
 
+#if SWIFT_PACKAGE
+import AardvarkSwift
+import AardvarkRevealCompression
+#endif
+
 @objc(ARKRevealAttachmentGeneratorDelegate)
 public protocol RevealAttachmentGeneratorDelegate: AnyObject {
 

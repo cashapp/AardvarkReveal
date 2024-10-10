@@ -1,0 +1,15 @@
+{
+  "originHash" : "0a4059d71ef3255e39435e63666b42b53838c8cc2ef6f517795297df18422dcb",
+  "pins" : [
+    {
+      "identity" : "aardvark",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/square/Aardvark",
+      "state" : {
+        "revision" : "2eb62ce13df23128dcc89b70cf200d369d47dbbd",
+        "version" : "5.2.0"
+      }
+    }
+  ],
+  "version" : 3
+}
